@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="548.0" maxWidth="865.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TutorController">
+   <children>
+      <ImageView fitHeight="50.0" fitWidth="865.0">
+         <image>
+            <Image url="@../resources/top2.jpg" />
+         </image>
+      </ImageView>
+      <TabPane layoutY="50.0" prefHeight="449.0" prefWidth="865.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Lekcje">
+               <content>
+                  <AnchorPane prefHeight="420.0" prefWidth="860.0">
+                     <children>
+                        <TableView fx:id="tbl_lessons_t" layoutX="14.0" layoutY="14.0" prefHeight="313.0" prefWidth="816.0">
+                          <columns>
+                            <TableColumn fx:id="col_data_tl" prefWidth="70.0" text="data lekcji" />
+                            <TableColumn fx:id="col_hour_tl" prefWidth="72.0" text="godzina" />
+                              <TableColumn fx:id="col_subject_tl" prefWidth="88.0" text="przedmiot" />
+                              <TableColumn fx:id="col_student_name_tl" prefWidth="100.0" text="imię ucznia" />
+                              <TableColumn fx:id="col_student_lastname_tl" prefWidth="100.0" text="nazwisko ucznia" />
+                              <TableColumn fx:id="col_student_adress_tl" prefWidth="100.0" text="adres" />
+                              <TableColumn fx:id="col_student_city_tl" prefWidth="100.0" text="miasto" />
+                              <TableColumn fx:id="col_student_postcode_tl" prefWidth="88.0" text="kod pocztowy" />
+                              <TableColumn fx:id="col_student_phone_tl" prefWidth="96.0" text="nr tel " />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Dyspozycyjność">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tbl_tutor_availibility_t" layoutX="23.0" layoutY="32.0" prefHeight="206.0" prefWidth="549.0">
+                           <columns>
+                              <TableColumn fx:id="col_id_availibility_ta" prefWidth="110.0" text="id_dys_kor" />
+                              <TableColumn fx:id="col_id_hour_ta" prefWidth="110.0" text="id_godz_dys" />
+                              <TableColumn fx:id="col_hour_ta" prefWidth="110.0" text="godziny" />
+                              <TableColumn fx:id="col_data_ta" prefWidth="110.0" text="data" />
+                              <TableColumn fx:id="col_status_ta" prefWidth="110.0" text="zarezerwowana" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="23.0" layoutY="337.0" mnemonicParsing="false" onAction="#addAvailibility" text="dodaj dyspozycyjność" />
+                        <ComboBox fx:id="cb_hour_t" layoutX="23.0" layoutY="294.0" prefHeight="25.0" prefWidth="174.0" promptText="wybierz godziny" />
+                        <DatePicker fx:id="dp_data_t" layoutX="23.0" layoutY="254.0" promptText="wybierz datę" />
+                        <Button layoutX="23.0" layoutY="372.0" mnemonicParsing="false" onAction="#deleteAvailability" prefHeight="25.0" prefWidth="132.0" text="usuń dyspozycyjność" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Przedmioty">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tbl_subjects_t" layoutX="23.0" layoutY="32.0" prefHeight="206.0" prefWidth="221.0">
+                           <columns>
+                              <TableColumn fx:id="col_id_subject_ts" prefWidth="95.0" text="id_przedmiotu" />
+                              <TableColumn fx:id="col_subject_name_ts" prefWidth="125.0" text="nazwa przedmiotu" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="274.0" layoutY="80.0" mnemonicParsing="false" onAction="#addSubject" prefHeight="25.0" prefWidth="176.0" text="dodaj przedmiot" />
+                        <ComboBox fx:id="cb_subject_t" layoutX="275.0" layoutY="39.0" prefHeight="25.0" prefWidth="174.0" promptText="wybierz przedmiot" />
+                        <Button layoutX="275.0" layoutY="123.0" mnemonicParsing="false" onAction="#removeSubject" prefHeight="25.0" prefWidth="176.0" text="usuń przedmiot" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ImageView fitHeight="50.0" fitWidth="865.0" layoutY="499.0">
+         <image>
+            <Image url="@../resources/bottom.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="766.0" layoutY="512.0" mnemonicParsing="false" onAction="#exit" text="wyjdź" />
+      <Button layoutX="682.0" layoutY="512.0" mnemonicParsing="false" onAction="#logout" text="wyloguj się" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="384.0" layoutY="12.0" text="PANEL KOREPETYTORA">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="370.0" layoutY="517.0" text="©Krzysztof Chudak-Morzuchowski">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_loggedas_t" layoutX="639.0" layoutY="15.0" text="loggedas" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
